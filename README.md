@@ -26,10 +26,16 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Installation and MongoDB
 
 ```bash
 $ npm install
+
+$ docker pull mongo 
+
+docker run -d -p 27017:27017 --name example-mongo mongo:latest
+
+and change the URL connection in app.module.ts
 ```
 
 ## Running the app

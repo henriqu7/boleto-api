@@ -6,11 +6,11 @@ export function checkBarCode(barCode: string){
       return {barcode: '', status: false};
     }
     
-    if(res.length === 48) return extractConvenantBillInfo(barCode)
-    else return extractTitleBillInfo(barCode)
+    if(res.length === 48) return GenerateConvenantCodeBar(barCode)
+    else return GenerateTitleCodeBar(barCode)
 }
 
-export function extractTitleBillInfo(lineCode: string) {
+export function GenerateTitleCodeBar(lineCode: string) {
 
   const barCodeValidator = lineCode[32];
   console.log('barCodeValidator: ', barCodeValidator)
@@ -37,7 +37,7 @@ export function extractTitleBillInfo(lineCode: string) {
   return {barcode: barCode, status: true};
 }
 
-export function extractConvenantBillInfo(lineCode: string) {
+export function GenerateConvenantCodeBar(lineCode: string) {
   const barCode = lineCode.substring(0, 11)
       .concat(
           lineCode.substring(12, 23),
